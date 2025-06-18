@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Yapılacaklar</string>
+    <string name="mainScreenTitle">Yapılacaklar</string>
+    <string name="saveScreenTitle">Kayıt Sayfa</string>
+    <string name="updateScreenTitle">Güncelleme Sayfa</string>
+    <string name="searchHint">Ara</string>
+    <string name="editTextNameHint">Ad</string>
+    <string name="saveTitle">KAYDET</string>
+    <string name="updateTitle">GÜNCELLE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
