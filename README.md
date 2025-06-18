@@ -1,3 +1,3 @@
 # Bootcamp ToDo App
 
-- XML tabanlı  todo uygulaması. 
+- XML tabanlı  ToDo uygulaması. 
