@@ -14,10 +14,16 @@ import com.example.todosapp.data.entity.ToDos
 import com.example.todosapp.databinding.CardDesignBinding
 import com.example.todosapp.databinding.SaveScreenBinding
 import com.example.todosapp.ui.screens.MainScreenDirections
+import com.example.todosapp.ui.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
+import java.nio.file.Files.delete
 
 
-class ToDosAdapter(var mContext: Context, var toDosList: List<ToDos>) :
+class ToDosAdapter(
+    var mContext: Context,
+    var toDosList: List<ToDos>,
+    var viewModel: MainViewModel
+) :
     RecyclerView.Adapter<ToDosAdapter.CardDesignHolder>() {
 
     inner class CardDesignHolder(var binding: CardDesignBinding) :
@@ -40,7 +46,7 @@ class ToDosAdapter(var mContext: Context, var toDosList: List<ToDos>) :
         val design = holder.binding
 
         design.imageViewToDo.setImageResource(
-            mContext.resources.getIdentifier(toDo.image,"drawable",mContext.packageName)
+            mContext.resources.getIdentifier(toDo.image, "drawable", mContext.packageName)
         )
 
         design.textViewName.text = toDo.name
@@ -51,9 +57,9 @@ class ToDosAdapter(var mContext: Context, var toDosList: List<ToDos>) :
             it.findNavController().navigate(toUpdateScreen)
         }
         design.imageViewDelete.setOnClickListener {
-            Snackbar.make(it,"Do you want to delete ${toDo.name} ?",Snackbar.LENGTH_SHORT)
-                .setAction("YES"){
-                    delete(toDo.id)
+            Snackbar.make(it, "Do you want to delete ${toDo.name} ?", Snackbar.LENGTH_SHORT)
+                .setAction("YES") {
+                    viewModel.delete(toDo.id)
                 }.show()
         }
 
@@ -61,11 +67,6 @@ class ToDosAdapter(var mContext: Context, var toDosList: List<ToDos>) :
 
     override fun getItemCount(): Int {
         return toDosList.size
-    }
-
-    fun delete(id : Int){
-        Log.e("Delete Result",id.toString())
-
     }
 
 

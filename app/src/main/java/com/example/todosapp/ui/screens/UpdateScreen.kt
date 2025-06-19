@@ -10,7 +10,10 @@ import androidx.navigation.fragment.navArgs
 import com.example.todosapp.R
 import com.example.todosapp.databinding.UpdateScreenBinding
 import com.example.todosapp.ui.viewmodel.UpdateViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class UpdateScreen : Fragment() {
     private lateinit var binding: UpdateScreenBinding
     private lateinit var viewModel: UpdateViewModel
@@ -26,6 +29,10 @@ class UpdateScreen : Fragment() {
         binding.imageViewUpdateToDo.setImageResource(
             resources.getIdentifier(toDo.image,"drawable",requireContext().packageName)
         )
+        binding.buttonUpdate.setOnClickListener {
+            val name = binding.editTextName.text.toString()
+            viewModel.update(toDo.id,name)
+        }
 
         binding.editTextName.setText(toDo.name)
 

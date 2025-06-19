@@ -11,8 +11,10 @@ import com.example.todosapp.R
 import com.example.todosapp.databinding.SaveScreenBinding
 import com.example.todosapp.ui.viewmodel.SaveViewModel
 import com.example.todosapp.ui.viewmodel.UpdateViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.getValue
 
+@AndroidEntryPoint
 class SaveScreen : Fragment() {
     private lateinit var binding: SaveScreenBinding
     private lateinit var image: String
@@ -35,7 +37,7 @@ class SaveScreen : Fragment() {
 
         binding.buttonSave.setOnClickListener {
             val name = binding.editTextName.text.toString()
-            save(name,image)
+            viewModel.save(name,image)
         }
 
         return binding.root
@@ -46,8 +48,6 @@ class SaveScreen : Fragment() {
         viewModel = tempViewModel
     }
 
-    fun save(name:String,image:String){
-        Log.e("Save Result","$name - $image")
-    }
+
 }
 
