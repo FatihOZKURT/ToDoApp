@@ -1,4 +1,4 @@
-# Bootcamp ToDo App
+# Android Bootcamp ToDo App
 
 - XML tabanlı  ToDo uygulaması. 
 - Veriler SQLite ile kaydedildi.
