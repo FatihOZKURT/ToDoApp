@@ -12,9 +12,9 @@ import javax.inject.Inject
 class UpdateViewModel @Inject constructor(var toDosRepository: ToDosRepository) : ViewModel() {
 
 
-    fun update(id: Int, image: String) {
+    fun update(id: Int, name: String) {
         CoroutineScope(Dispatchers.Main).launch {
-            toDosRepository.update(id, image)
+            toDosRepository.update(id, name)
         }
 
     }

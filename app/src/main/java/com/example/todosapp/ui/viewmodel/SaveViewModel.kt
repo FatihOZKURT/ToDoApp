@@ -14,9 +14,9 @@ import javax.inject.Inject
 class SaveViewModel @Inject constructor(var toDosRepository: ToDosRepository)  : ViewModel() {
 
 
-    fun save(name: String, image: String) {
+    fun save(name: String) {
         CoroutineScope(Dispatchers.Main).launch {
-            toDosRepository.save(name, image)
+            toDosRepository.save(name)
         }
     }
 

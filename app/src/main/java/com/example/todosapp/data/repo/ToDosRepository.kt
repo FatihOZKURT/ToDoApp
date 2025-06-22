@@ -6,7 +6,7 @@ import com.example.todosapp.data.entity.ToDos
 class ToDosRepository (  var toDosDataSource : ToDosDataSource ) {
 
 
-    suspend fun save(name:String,image:String) = toDosDataSource.save(name,image)
+    suspend fun save(name:String) = toDosDataSource.save(name)
 
     suspend fun update(id: Int, name: String) = toDosDataSource.update(id,name )
 

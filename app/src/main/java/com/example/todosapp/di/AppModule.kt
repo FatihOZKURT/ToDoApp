@@ -35,8 +35,8 @@ class AppModule {
         val db = Room.databaseBuilder(
             context,
             MyDatabase::class.java,
-            "todos_app.sqlite"
-        ).createFromAsset("todos_app.sqlite").build()
+            "todo_db.sqlite"
+        ).createFromAsset("todo_db.sqlite").build()
         return db.getToDosDao()
     }
 

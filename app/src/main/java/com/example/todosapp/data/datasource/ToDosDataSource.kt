@@ -9,8 +9,8 @@ import kotlinx.coroutines.withContext
 class ToDosDataSource(var toDosDao: ToDosDao) {
 
 
-    suspend fun save(name: String, image: String) {
-        val newToDo = ToDos(0, name, image)
+    suspend fun save(name: String) {
+        val newToDo = ToDos(0, name)
         toDosDao.save(newToDo)
     }
 
@@ -19,7 +19,7 @@ class ToDosDataSource(var toDosDao: ToDosDao) {
     }
 
     suspend fun delete(id: Int) {
-        val toDo = ToDos(id, "", "")
+        val toDo = ToDos(id, "")
         toDosDao.delete(toDo)
     }
 

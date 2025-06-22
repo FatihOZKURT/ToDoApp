@@ -10,20 +10,20 @@ import com.example.todosapp.data.entity.ToDos
 @Dao
 interface ToDosDao { // Dao : Data Access Object
 
-    @Query("SELECT * FROM toDos")
+    @Query("SELECT * FROM ToDos")
     suspend fun loadToDos() : List<ToDos>
 
 
     @Insert
     suspend fun save(toDo : ToDos)
 
-    @Query("UPDATE toDos SET name = :name  WHERE id = :id")
+    @Query("UPDATE ToDos SET name = :name  WHERE id = :id")
     suspend fun update(id: Int, name: String)
 
     @Delete
     suspend fun delete(toDo : ToDos)
 
-    @Query("SELECT * FROM toDos WHERE name LIKE '%' || :searchText || '%'")
+    @Query("SELECT * FROM ToDos WHERE name LIKE '%' || :searchText || '%'")
     suspend fun search(searchText: String) : List<ToDos>
 
 

@@ -27,17 +27,10 @@ class SaveScreen : Fragment() {
 
         //this - this@SaveScreen - requireContext() - applicationContext
 
-        val images = listOf("agac","araba","cicek","damla","gezegen","gunes","roket","semsiye","simsek","yildiz")
-
-        image = images.random()
-
-        binding.imageViewSaveToDo.setImageResource(
-            resources.getIdentifier(image,"drawable",requireContext().packageName)
-        )
 
         binding.buttonSave.setOnClickListener {
             val name = binding.editTextName.text.toString()
-            viewModel.save(name,image)
+            viewModel.save(name)
         }
 
         return binding.root

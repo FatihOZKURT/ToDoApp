@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.example.todosapp.R
 import com.example.todosapp.databinding.UpdateScreenBinding
 import com.example.todosapp.ui.viewmodel.UpdateViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,9 +25,7 @@ class UpdateScreen : Fragment() {
         val bundle: UpdateScreenArgs by navArgs()
         val toDo = bundle.toDo
 
-        binding.imageViewUpdateToDo.setImageResource(
-            resources.getIdentifier(toDo.image,"drawable",requireContext().packageName)
-        )
+
         binding.buttonUpdate.setOnClickListener {
             val name = binding.editTextName.text.toString()
             viewModel.update(toDo.id,name)

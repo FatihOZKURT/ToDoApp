@@ -45,9 +45,6 @@ class ToDosAdapter(
         val toDo = toDosList[position]
         val design = holder.binding
 
-        design.imageViewToDo.setImageResource(
-            mContext.resources.getIdentifier(toDo.image, "drawable", mContext.packageName)
-        )
 
         design.textViewName.text = toDo.name
 
